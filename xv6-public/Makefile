@@ -137,7 +137,7 @@ vectors.S: vectors.pl
 
 ULIB = ulib.o usys.o printf.o umalloc.o
 
-# Set an offset of 0x1000 instead of 0
+# Set offset to 0x1000 instead of 0
 
 _%: %.o $(ULIB)
 	$(LD) $(LDFLAGS) -N -e main -Ttext 0x1000 -o $@ $^
