@@ -77,6 +77,10 @@ trap(struct trapframe *tf)
             cpunum(), tf->cs, tf->eip);
     lapiceoi();
     break;
+  case T_PGFLT:
+    cprintf("you accessed null pointer. can't do that.\n");
+    proc->killed = 1;
+    break;
 
   //PAGEBREAK: 13
   default:
